@@ -11,11 +11,15 @@ config_version=4
 [application]
 
 config/name="Get Disappointment In Your Life"
+config/description="Подсчитай сколько времени было потрачено на аниме! ;)"
 run/main_scene="res://main.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://wp4088461-kurisu-makise-wallpapers.png"
+config/icon="res://706191501922664448.png"
+config/windows_native_icon="res://706191501922664448.png"
 
 [display]
 
+window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [physics]

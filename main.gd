@@ -19,29 +19,29 @@ func _ready():
 	list = parse_json(save_game.get_as_text())
 	
 	#MAIN
-	#Число, сколько имён.
 	for a in list.name.size():
 		$scroll/lists/c_names/names.add_item(str(list.name[a]))
 		$scroll/lists/c_series/series.add_item(str(list.series[a]))
 		$scroll/lists/c_duration/duration.add_item(str(list.duration[a]))
 		
 		###Считаем время одного аниме.
-		list.one_anime.append(stepify(list.series[a] * list.duration[a] / 60, 0.01)) #Округляем.
+		#list.one_anime.append(stepify(list.series[a] * list.duration[a] / 60, 1)) #Округляем.
 		
 		$scroll/lists/c_full_anime/full_anime.add_item(str(list.one_anime[a]))
 		
 	#/// #Число анимешек.
 	$text/animes.set_text(str($scroll/lists/c_names/names.get_item_count()))
 	
-	#/// #Число серий.
-	for a in list.series.size():
-		series +=list.series[a]
-		$text/series.set_text(str(series))
+	#Пересчитываем говно из жопы.
+	full_time = 0
+	for t in list.one_anime.size():
+		full_time += list.one_anime[t]
+	$text/total_hours.set_text(str(full_time))
 		
-	#/// #Полное время.
-	for a in list.one_anime.size():
-		full_time += list.one_anime[a]
-		$text/total_hours.set_text(str(full_time))
+	series = 0
+	for s in list.series.size():
+		series += list.series[s]
+	$text/series.set_text(str(series))
 
 
 
@@ -65,7 +65,7 @@ func _on_add_pressed():
 		series += list.series.back()
 		$text/series.set_text(str(series))
 		
-		list.one_anime.push_back(stepify(list.series.back() * list.duration.back() / 60, 0.1)) #Округляем.
+		list.one_anime.append(stepify(list.series.back() * list.duration.back() / 60, 0.01)) #Округляем.
 		$scroll/lists/c_full_anime/full_anime.add_item(str(list.one_anime.back()))
 		
 		#/// #Полное время. 
@@ -99,7 +99,7 @@ func _on_del_pressed():
 		#Пересчитываем говно из жопы.
 		full_time = 0
 		for t in list.one_anime.size():
-			full_time += list.one_anime[t]	
+			full_time += list.one_anime[t]
 		$text/total_hours.set_text(str(full_time))
 		
 		series = 0
