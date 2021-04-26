@@ -1,0 +1,273 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+
+[node name="main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="RichTextLabel" parent="text"]
+margin_top = 48.0
+margin_right = 1024.0
+margin_bottom = 64.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Name                                       Series                                      Duration of series (minutes)   Full Anime (hours)"
+scroll_active = false
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="result" type="RichTextLabel" parent="text"]
+margin_top = 544.0
+margin_right = 1024.0
+margin_bottom = 560.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Animes:                                   Series:                                                                                     Total:"
+scroll_active = false
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="animes" type="Label" parent="text"]
+margin_left = 56.0
+margin_top = 544.0
+margin_right = 96.0
+margin_bottom = 558.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="series" type="Label" parent="text"]
+margin_left = 240.0
+margin_top = 544.0
+margin_right = 280.0
+margin_bottom = 558.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="total_hours" type="Label" parent="text"]
+margin_left = 616.0
+margin_top = 544.0
+margin_right = 656.0
+margin_bottom = 558.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="scroll" type="ScrollContainer" parent="."]
+margin_top = 64.0
+margin_right = 704.0
+margin_bottom = 544.0
+mouse_filter = 2
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lists" type="HBoxContainer" parent="scroll"]
+margin_right = 704.0
+margin_bottom = 480.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="c_names" type="Control" parent="scroll/lists"]
+margin_bottom = 480.0
+
+[node name="names" type="ItemList" parent="scroll/lists/c_names"]
+margin_left = -2.0
+margin_right = 190.0
+margin_bottom = 480.0
+select_mode = 1
+auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="c_series" type="Control" parent="scroll/lists"]
+margin_left = 50.0
+margin_right = 50.0
+margin_bottom = 480.0
+
+[node name="series" type="ItemList" parent="scroll/lists/c_series"]
+margin_left = 140.0
+margin_right = 332.0
+margin_bottom = 480.0
+auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="c_duration" type="Control" parent="scroll/lists"]
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 480.0
+
+[node name="duration" type="ItemList" parent="scroll/lists/c_duration"]
+margin_left = 282.0
+margin_right = 474.0
+margin_bottom = 480.0
+auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="c_full_anime" type="Control" parent="scroll/lists"]
+margin_left = 150.0
+margin_right = 150.0
+margin_bottom = 480.0
+
+[node name="full_anime" type="ItemList" parent="scroll/lists/c_full_anime"]
+margin_left = 424.0
+margin_right = 552.0
+margin_bottom = 480.0
+auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="help" type="ItemList" parent="scroll/lists"]
+visible = false
+margin_left = 200.0
+margin_right = 200.0
+margin_bottom = 480.0
+auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_input" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="t_name" type="Label" parent="text_input"]
+margin_left = 800.0
+margin_top = 88.0
+margin_right = 886.0
+margin_bottom = 102.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Anime name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="t_series" type="Label" parent="text_input"]
+margin_left = 792.0
+margin_top = 136.0
+margin_right = 878.0
+margin_bottom = 150.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Series:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="t_duration" type="Label" parent="text_input"]
+margin_left = 944.0
+margin_top = 136.0
+margin_right = 1030.0
+margin_bottom = 150.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Duration:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="LineEdit" parent="text_input"]
+margin_left = 792.0
+margin_top = 104.0
+margin_right = 1000.0
+margin_bottom = 128.0
+clear_button_enabled = true
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="series" type="LineEdit" parent="text_input"]
+margin_left = 792.0
+margin_top = 152.0
+margin_right = 850.0
+margin_bottom = 176.0
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="duration" type="LineEdit" parent="text_input"]
+margin_left = 944.0
+margin_top = 152.0
+margin_right = 1002.0
+margin_bottom = 176.0
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="add" type="Button" parent="text_input"]
+margin_left = 952.0
+margin_top = 192.0
+margin_right = 992.0
+margin_bottom = 212.0
+text = "Add"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="del" type="Button" parent="text_input"]
+margin_left = 944.0
+margin_top = 224.0
+margin_right = 999.0
+margin_bottom = 244.0
+text = "Delete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_left = 752.0
+margin_top = 264.0
+margin_right = 1003.0
+margin_bottom = 384.0
+window_title = "Don't break the system, please."
+dialog_text = "Name: \"name\"
+Series: number of series
+Duration: duration of one series"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="text_input/add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="text_input/del" to="." method="_on_del_pressed"]
