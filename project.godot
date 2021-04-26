@@ -15,7 +15,7 @@ config/description="Подсчитай сколько времени было п
 run/main_scene="res://main.tscn"
 boot_splash/image="res://wp4088461-kurisu-makise-wallpapers.png"
 config/icon="res://706191501922664448.png"
-config/windows_native_icon="res://706191501922664448.png"
+config/windows_native_icon="res://706191501922664448.ico"
 
 [display]
 
